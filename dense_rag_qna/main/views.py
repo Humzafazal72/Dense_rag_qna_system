@@ -45,7 +45,7 @@ def document_upload(request):
 def retrieve_information(request,doc_name):
     if request.method == 'POST':
 
-        if os.path.exists(f'{CHAT_HISTORY_DIR}/{doc_name.split('.')[0]}.pkl'):
+        if os.path.exists(f"{CHAT_HISTORY_DIR}/{doc_name.split('.')[0]}.pkl"):
             with open(f"{CHAT_HISTORY_DIR}/{doc_name.split('.')[0]}.pkl",'rb') as file:
                 chat_history = pickle.load(file)
         else:
