@@ -50,9 +50,3 @@ def signin(request):
 def signout(request):
     logout(request)
     return JsonResponse({'success':'User logged-out successfully'},status=200)
-        
-
-
-
-    
-
