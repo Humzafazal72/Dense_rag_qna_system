@@ -4,4 +4,5 @@ langchain-core == 0.3.25
 langchain-community == 0.3.1
 langchain-groq == 0.2.1
 pypdf == 5.0.1
+chroma-hnswlib == 0.7.6
 chromadb == 0.5.13

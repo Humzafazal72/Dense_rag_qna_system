@@ -2,18 +2,9 @@ import os
 import json
 import pickle
 from pathlib import Path
-from dotenv import load_dotenv
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from utils import create_db,retrieve_docs,optimization_chain,generation_chain
-
-load_dotenv()
-
-os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
-os.environ['LANGCHAIN_API_KEY'] = os.getenv('LANGCHAIN_API_KEY')
-os.environ['LANGCHAIN_TRACING_V2'] = os.getenv('LANGCHAIN_TRACING_V2')
-os.environ['LANGCHAIN_ENDPOINT'] = os.getenv('LANGCHAIN_ENDPOINT')
-os.environ['LANGCHAIN_PROJECT'] = os.getenv('LANGCHAIN_PROJECT')
 
 CURR_DIR = Path(__file__).resolve().parent
 CACHE_PATH = os.path.join(Path(__file__).resolve().parent,'cache')

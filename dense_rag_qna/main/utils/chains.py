@@ -1,6 +1,16 @@
+import os
+from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers.string import StrOutputParser
+
+load_dotenv()
+
+os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
+os.environ['LANGCHAIN_API_KEY'] = os.getenv('LANGCHAIN_API_KEY')
+os.environ['LANGCHAIN_TRACING_V2'] = os.getenv('LANGCHAIN_TRACING_V2')
+os.environ['LANGCHAIN_ENDPOINT'] = os.getenv('LANGCHAIN_ENDPOINT')
+os.environ['LANGCHAIN_PROJECT'] = os.getenv('LANGCHAIN_PROJECT')
 
 prompt_generation = ChatPromptTemplate.from_template("""You are a precise and helpful AI assistant specializing in extracting and synthesizing relevant information from given context.
 
