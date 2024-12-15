@@ -4,7 +4,7 @@ import pickle
 from pathlib import Path
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from utils import create_db,retrieve_docs,optimization_chain,generation_chain
+from .utils import create_db,retrieve_docs,optimization_chain,generation_chain
 
 CURR_DIR = Path(__file__).resolve().parent
 CACHE_PATH = os.path.join(Path(__file__).resolve().parent,'cache')
