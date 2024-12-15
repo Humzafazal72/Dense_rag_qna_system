@@ -4,7 +4,7 @@ import pickle
 from pathlib import Path
 from dotenv import load_dotenv
 from django.http import JsonResponse
-from django.views.decorators import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 from utils import create_db,retrieve_docs,optimization_chain,generation_chain
 
 load_dotenv()
