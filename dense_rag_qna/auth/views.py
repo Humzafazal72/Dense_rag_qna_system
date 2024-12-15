@@ -25,7 +25,7 @@ def signup(request):
     else:
         return JsonResponse({"error": "Invalid HTTP method."}, status=405)
     
-def login(request):
+def signin(request):
     if request.method == "POST":
         data = json.loads(request.body)
 
@@ -47,7 +47,7 @@ def login(request):
     else:
         return JsonResponse({"error": "Invalid HTTP method."}, status=405)
     
-def logout(request):
+def signout(request):
     logout(request)
     return JsonResponse({'success':'User logged-out successfully'},status=200)
         
