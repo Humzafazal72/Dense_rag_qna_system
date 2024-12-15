@@ -64,7 +64,7 @@ def retrieve_information(request,doc_name):
         chat_history.append(u_query)
         chat_history.append(response.content)
 
-        with open(f"{CHAT_HISTORY_DIR}/{doc_name.split('.')[0]}.pkl",'rb') as file:
+        with open(f"{CHAT_HISTORY_DIR}/{doc_name.split('.')[0]}.pkl",'wb') as file:
                 chat_history = pickle.dump(chat_history,file)
 
         return JsonResponse({"response":response.content},status=205)
