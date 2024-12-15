@@ -68,3 +68,6 @@ def retrieve_information(request,doc_name):
                 chat_history = pickle.dump(chat_history,file)
 
         return JsonResponse({"response":response.content},status=205)
+    
+    else:
+        return JsonResponse({"error": "Invalid HTTP method."}, status=405)
