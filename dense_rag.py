@@ -22,7 +22,7 @@ embedding=HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base
 splitter = RecursiveCharacterTextSplitter(chunk_size = 1000, chunk_overlap=200)
 db = Chroma()
 
-prompt_retrieval = ChatPromptTemplate.from_template("""You are a precise and helpful AI assistant specializing in extracting and synthesizing relevant information from given context.
+prompt_generation = ChatPromptTemplate.from_template("""You are a precise and helpful AI assistant specializing in extracting and synthesizing relevant information from given context.
 
 Instructions:
 1. Carefully read the provided context.
@@ -88,6 +88,13 @@ chroma_db = db.from_documents(split_documents[0:35],embedding = embedding)
 retriever = chroma_db.as_retriever()
 
 optimization_chain = prompt_q_optimization_template | llm_light | StrOutputParser()
+generation_chain = prompt_generation | llm_dense 
 
 optimized_query = optimization_chain.invoke({'input_':''})
+
+context_docs = retriever.invoke('')
+
+print(prompt_generation.invoke({'question':'','context':context_docs}))
+
+
 
