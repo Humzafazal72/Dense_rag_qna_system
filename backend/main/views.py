@@ -12,14 +12,18 @@ CURR_DIR = Path(__file__).resolve().parent
 
 CACHE_PATH = os.path.join(Path(__file__).resolve().parent, 'cache')    
 
+
 @csrf_exempt  
 def document_upload(request):
     if request.method == 'POST':
+        
         document = request.FILES.get("document")
         doc_name = document.name
-        doc_name_ = doc_name.replace(' ','_').replace('.pdf', '')
+        doc_name_ = doc_name.replace('%20','_').replace(' ', '_').replace('.pdf', '')
+
+        print('Document Name: ',doc_name_)
         username = request.POST.get("username")
-        # username = str(request.user.username)
+
         chat_history = []
 
         (CURR_DIR / 'users_data' / username / doc_name_).mkdir(exist_ok = True)
