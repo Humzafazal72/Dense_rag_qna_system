@@ -53,14 +53,14 @@ python weights.py
 Navigate to the project directory and run:
 
 ```bash
-cd backend/dense_rag_qna/
+cd backend
 python manage.py migrate
 ```
 
 ### 7. Run the Development Server
 
 ```bash
-cd backend/dense_rag_qna
+cd backend
 python manage.py runserver
 ```
 
