@@ -7,6 +7,7 @@ const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export const addDocument = async (formData) => {
   const document = formData.get("document");
+  const documentNameWithoutSpaces = document.name.replace(/\s+/g, "_");
   if (!document.name.endsWith(".pdf")) {
     return { error: "Only PDF files are allowed" };
   }
@@ -21,10 +22,12 @@ export const addDocument = async (formData) => {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
-      session.docs.push(document.name.slice(0, -4));
+      session.docs = data.docs;
       await session.save();
-      return { success: true, fileName: document.name.slice(0, -4) };
+      return {
+        success: true,
+        fileName: documentNameWithoutSpaces.slice(0, -4),
+      };
     }
 
     return { error: data.error || "Add Document API Failed" };
