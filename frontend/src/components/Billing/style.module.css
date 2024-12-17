@@ -1,0 +1,19 @@
+.goBack {
+  color: #898a96;
+}
+
+.goBack svg path {
+  transition: all 0.3s ease;
+}
+
+.goBack:hover svg path {
+  fill: #f5f3c2;
+}
+
+.goBack span {
+  transition: all 0.3s ease;
+}
+
+.goBack:hover span {
+  color: #f5f3c2;
+}
