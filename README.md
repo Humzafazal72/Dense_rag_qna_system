@@ -66,7 +66,12 @@ python manage.py runserver
 
 The server will start, typically at `http://127.0.0.1:8000/`
 
-### 8. Install Dependencies Frontend:
+### 8. Environment Configuration Frontend
+
+1. Navigate to the `frontend` directory
+2. Add the `.env` file with your project-specific environment variables
+
+### 9. Install Dependencies Frontend:
 
 Navigate to the project directory and run:
 
@@ -75,7 +80,7 @@ cd frontend
 npm install
 ```
 
-### 9. Run the Development Server Frontend:
+### 10. Run the Development Server Frontend:
 
 Navigate to the project directory and run:
 
